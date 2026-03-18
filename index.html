@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ryan Damasco | Portfolio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: "class" }</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<style>
+html { scroll-behavior:smooth; }
+
+.gradient{
+  background: linear-gradient(135deg,#4f46e5,#9333ea);
+}
+
+.card{
+  background:white;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+.dark .card{
+  background:#1e293b;
+  color:white;
+}
+
+.skill{
+  text-align:center;
+  padding:20px;
+  border-radius:16px;
+  background:white;
+  box-shadow:0 10px 20px rgba(0,0,0,0.08);
+  transition:.3s;
+}
+.skill:hover{
+  transform:translateY(-6px);
+}
+.dark .skill{
+  background:#1e293b;
+}
+
+#chatBox{
+  display:none;
+}
+</style>
+</head>
+
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-white">
+
+<!-- NAVBAR -->
+<nav class="fixed w-full z-50 bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg">
+  <div class="max-w-6xl mx-auto flex justify-between p-4 text-white">
+    <h1 class="font-bold text-lg">Ryan Damasco</h1>
+    <div class="space-x-6">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="gradient text-white pt-32 pb-24 text-center px-6">
+  <img src="myphoto.png" class="mx-auto rounded-full shadow-lg mb-6 border-4 border-white">
+  <h1 class="text-5xl font-bold mb-4">Hi, I'm Ryan 👋</h1>
+  <p class="text-xl mb-6"><span id="typing"></span></p>
+  <p class="max-w-xl mx-auto opacity-90">Web Developer & Accounting Professional combining technology and finance expertise.</p>
+</section>
+
+<!-- VIDEO -->
+<section class="max-w-5xl mx-auto mt-16 px-6">
+  <h2 class="text-3xl font-bold text-center mb-6">Introduction</h2>
+  <div class="aspect-video">
+    <iframe class="w-full h-full rounded-xl shadow-lg"
+    src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+    allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="max-w-5xl mx-auto mt-20 px-6">
+  <div class="card">
+    <h2 class="text-2xl font-bold mb-4">About Me</h2>
+      <p>I am an Application System Engineer with expertise in Java, JavaScript, Spring Boot, AI, and AWS. With a strong background in accounting, specializing in Accounts Receivable (AR) and Accounts Payable (AP), I combine technical skills and business insight to build efficient, scalable solutions. I enjoy bridging the gap between technology and finance, delivering applications that not only work seamlessly but also support organizational goals</p>
+    
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="max-w-6xl mx-auto mt-20 px-6">
+  <h2 class="text-3xl font-bold text-center mb-10">Skills</h2>
+  <div class="grid md:grid-cols-4 gap-6">
+    <div class="skill"><i class="fab fa-html5 text-orange-500 text-3xl"></i><p>HTML</p></div>
+    <div class="skill"><i class="fab fa-css3-alt text-blue-500 text-3xl"></i><p>CSS</p></div>
+    <div class="skill"><i class="fab fa-js text-yellow-400 text-3xl"></i><p>JavaScript</p></div>
+    <div class="skill"><i class="fab fa-react text-cyan-400 text-3xl"></i><p>React</p></div>
+    <div class="skill"><i class="fab fa-salesforce text-blue-400 text-3xl"></i><p>Salesforce</p></div>
+    <div class="skill"><i class="fas fa-bullhorn text-pink-500 text-3xl"></i><p>GHL</p></div>
+    <div class="skill"><i class="fas fa-database text-green-400 text-3xl"></i><p>SAP</p></div>
+    <div class="skill"><i class="fas fa-chart-line text-indigo-400 text-3xl"></i><p>QuickBooks</p></div>
+    <div class="skill"><i class="fas fa-cogs text-gray-500 text-3xl"></i><p>AWS</p></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-20 max-w-6xl mx-auto px-6">
+  <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
+  <div class="grid md:grid-cols-2 gap-8">
+    <div class="relative group rounded-2xl p-[2px] bg-gradient-to-r from-indigo-500 to-purple-600">
+      <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 transition group-hover:scale-105">
+        <h3 class="font-bold text-xl mb-2 text-indigo-600 dark:text-indigo-400">CRM Automation System</h3>
+        <p>Automated workflows using GoHighLevel and AWS integrations.</p>
+      </div>
+    </div>
+    <div class="relative group rounded-2xl p-[2px] bg-gradient-to-r from-pink-500 to-purple-600">
+      <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 transition group-hover:scale-105">
+        <h3 class="font-bold text-xl mb-2 text-pink-600 dark:text-pink-400">AI Translation Tool</h3>
+        <p>Built automation workflows for AI-based content translation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="max-w-5xl mx-auto mt-20 px-6">
+  <h2 class="text-3xl font-bold text-center mb-10">Experience</h2>
+  <div class="space-y-6">
+    <div class="card"><h3 class="font-bold">Application Systems Engineer</h3><p>Developed enterprise applications and automation systems.</p></div>
+    <div class="card"><h3 class="font-bold">E-Commerce Web Developer</h3><p>Built and optimized e-commerce platforms and CRM systems.</p></div>
+    <div class="card"><h3 class="font-bold">IT Instructor</h3><p>Trained students in programming and system development.</p></div>
+    <div class="card"><h3 class="font-bold">Accounting Experience</h3><p>Handled AR/AP, bookkeeping, journal entries using SAP, QuickBooks, and BusinessWare.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="gradient text-white mt-20 py-16 text-center">
+  <h2 class="text-3xl font-bold mb-4">Contact</h2>
+  <p>Email: damasco.rbd@gmail.com</p>
+  <p>Phone: 0917.162.3115</p>
+  <p>www.linkedin.com/in/ryan-damasco-224868134</p>
+  <a href="#" class="mt-6 inline-block bg-white text-purple-600 px-6 py-3 rounded-full shadow hover:scale-105 transition">⬇ Download CV</a>
+</section>
+
+<!-- AI CHAT -->
+<div id="chatBtn" onclick="toggleChat()" class="fixed bottom-6 right-6 bg-purple-600 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-lg cursor-pointer">
+  <i class="fas fa-robot text-xl"></i>
+</div>
+
+<div id="chatBox" class="fixed bottom-24 right-6 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4">
+  <h3 class="font-bold mb-2">AI Assistant</h3>
+  <div id="chatMessages" class="h-48 overflow-y-auto text-sm mb-2"></div>
+  <input id="chatInput" placeholder="Ask anything..." class="w-full border rounded p-2 text-black">
+</div>
+
+<script>
+// Dark mode toggle
+function toggleDark(){ document.body.classList.toggle("dark"); }
+
+// Typed animation
+new Typed("#typing",{
+  strings:["Web Developer","Application Developer","Accounting (AR/AP)","Automation Specialist"],
+  typeSpeed:60,
+  loop:true
+});
+
+// Chat toggle
+function toggleChat(){
+  const box=document.getElementById("chatBox");
+  box.style.display=(box.style.display==="block")?"none":"block";
+}
+
+// AI reply logic
+function getReply(input){
+  input=input.toLowerCase().trim();
+  if(input.includes("hire") || input.includes("why should we hire")){
+    return "If you're not looking for a hardworking, reliable, and dedicated employee who delivers results without complaints, then don't hire Ryan. But if you want someone who adds real value to your team — he's exactly the person you need.";
+  }
+  if(input.includes("age")) return "Ryan is in his mid 40s.";
+  if(input.includes("address") || input.includes("location")) return "Ryan is based in the Philippines.";
+  if(input.includes("contact") || input.includes("phone") || input.includes("email")) return "You can contact Ryan at 09171623115 or damasco.rbd@gmail.com.";
+  if(input.includes("experience")) return "Ryan has 4+ years in Web Development and Accounting.";
+  if(input.includes("skills")) return "React,Java, Salesforce, Springboot,Java Script, AWS, AI Automation, GHL, SAP, QuickBooks, and more.";
+  if(input.includes("strength")) return "Detail-oriented, reliable, and highly dedicated.";
+  if(input.includes("weak") || input.includes("weakness")) return "Sometimes too detail-focused, but always improving efficiency.";
+  if(/(hi|hello|hey|how are you|good morning|good afternoon|good evening)/.test(input)){
+    return "Hello! I'm Ryan's AI assistant. Ask me anything about skills, experience, or projects.";
+  }
+  const fallback=["That's interesting! Could you ask about skills, experience, or projects?","I'm here to help! Feel free to ask about Ryan's expertise or background.","Ryan has a strong background in web development and accounting. What would you like to know?","I’m happy to answer questions about Ryan’s projects, skills, or experience."];
+  return fallback[Math.floor(Math.random()*fallback.length)];
+}
+
+// Chat input handling
+const input=document.getElementById("chatInput");
+const messages=document.getElementById("chatMessages");
+
+input.addEventListener("keypress",function(e){
+  if(e.key==="Enter"){
+    let user=input.value.trim();
+    if(!user) return;
+    messages.innerHTML+=`<p><b>You:</b> ${escapeHTML(user)}</p>`;
+    messages.innerHTML+=`<p><b>AI:</b> ${escapeHTML(getReply(user))}</p>`;
+    input.value="";
+    messages.scrollTop=messages.scrollHeight;
+  }
+});
+
+// Escape HTML helper
+function escapeHTML(str){
+  return str.replace(/[&<>"']/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m];});
+}
+</script>
+
+</body>
+</html>
