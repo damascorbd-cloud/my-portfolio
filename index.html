@@ -3,224 +3,303 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ryan Damasco | Portfolio</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config = { darkMode: "class" }</script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
+<title>Ryan Damasco — Systems & Automation Consultant</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-html { scroll-behavior:smooth; }
+/* BASE */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:#f9fafb;color:#1f2937;line-height:1.6;scroll-behavior:smooth;transition:background 0.3s,color 0.3s;}
+a{color:#0ea5e9;text-decoration:none;transition:0.3s;}
+a:hover{color:#2563eb;}
 
-.gradient{
-  background: linear-gradient(135deg,#4f46e5,#9333ea);
-}
+/* DARK MODE */
+body.dark{background:#1f2937;color:#f3f4f6;}
+body.dark a{color:#22c55e;}
+body.dark section{background:#111827;box-shadow:0 4px 20px rgba(255,255,255,0.05);}
+body.dark .card{background:#1f2937;box-shadow:0 4px 18px rgba(255,255,255,0.05);}
+body.dark .feedback-card{background:#111827;box-shadow:0 4px 15px rgba(255,255,255,0.05);}
+body.dark footer{color:#9ca3af;}
+body.dark section, 
+body.dark section h2, 
+body.dark section p,
+body.dark .skills, 
+body.dark .skill, 
+body.dark .stat h3, 
+body.dark .stat p{color:#f3f4f6 !important;}
+body.dark #contact a{color:#22c55e !important;}
 
-.card{
-  background:white;
-  border-radius:16px;
-  padding:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  transition:.3s;
-}
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.2);
-}
-.dark .card{
-  background:#1e293b;
-  color:white;
-}
+/* NAVBAR */
+nav{position:sticky;top:0;background:#fff;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+display:flex;justify-content:center;gap:30px;padding:15px 0;z-index:999;}
+nav a{font-weight:500;letter-spacing:0.5px;}
 
-.skill{
+/* HEADER */
+header{
+  text-align:center;padding:120px 20px 80px;position:relative;overflow:hidden;
+}
+header::before{
+  content:"";position:absolute;top:0;left:0;width:100%;height:100%;
+  background:url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg') center/cover no-repeat;
+  opacity:0.15; z-index:0;
+}
+header h1, header p, .badge{position:relative; z-index:1;}
+header h1{font-size:3rem;font-weight:700;}
+header p{font-size:1.1rem;max-width:700px;margin:15px auto;opacity:0.9;}
+.badge{display:inline-block;padding:10px 25px;background:#22c55e;border-radius:25px;font-weight:600;margin-top:15px;transition:0.3s;}
+.badge:hover{transform:scale(1.05);}
+
+/* LIGHT/DARK TOGGLE BUTTON */
+#themeToggle{position:fixed;top:20px;right:20px;background:#0ea5e9;color:#fff;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;z-index:1000;font-weight:600;transition:0.3s;}
+#themeToggle:hover{background:#2563eb;}
+
+/* FLOATING CONTACT BUTTON */
+#contactBtn{position:fixed;bottom:25px;right:25px;background:#22c55e;color:#fff;padding:15px 20px;border-radius:50px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.2);cursor:pointer;transition:0.3s;z-index:1000;}
+#contactBtn:hover{background:#16a34a;}
+
+/* SECTIONS */
+section{
+  max-width:1400px; /* expanded width */
+  margin:60px auto;
+  padding:60px 50px; /* more padding left and right */
+  border-radius:12px;
+  background:#fff;
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);
+  opacity:0;
+  transform:translateY(20px);
+  transition:0.6s;
+}
+section.visible{opacity:1;transform:translateY(0);}
+h2{text-align:center;color:#0ea5e9;font-size:2rem;margin-bottom:35px;}
+
+/* SKILLS */
+.skills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
+.skill{background:#e0f2fe;padding:10px 18px;border-radius:25px;font-weight:500;}
+
+/* CARDS FOR HELP & FEEDBACK */
+.feedback-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+.feedback-card{
+  background:#f1f5f9;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.05);
+  transition:0.3s;
   text-align:center;
-  padding:20px;
-  border-radius:16px;
-  background:white;
-  box-shadow:0 10px 20px rgba(0,0,0,0.08);
-  transition:.3s;
+  word-wrap: break-word; /* prevents text overflow */
 }
-.skill:hover{
-  transform:translateY(-6px);
+.feedback-card:hover{transform:translateY(-3px);}
+.feedback-card h3{
+  margin:10px 0 5px;
+  color:#0ea5e9;
+  font-weight:600;
+  font-size:1.1rem; /* slightly bigger */
 }
-.dark .skill{
-  background:#1e293b;
+.feedback-card img{display:block;margin:0 auto 10px;width:50px;height:50px;}
+.feedback-card p{
+  font-size:0.95rem; /* slightly bigger for readability */
+  line-height:1.5;
+  color:#1f2937;
+  word-wrap: break-word;
 }
 
-#chatBox{
-  display:none;
+/* PROJECTS */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
+.card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,0.05);transition:0.3s;}
+.card:hover{transform:translateY(-5px);}
+.card img{width:100%;border-radius:12px;margin-bottom:15px;object-fit:cover;height:200px;box-shadow:0 8px 20px rgba(0,0,0,0.1);transition: transform 0.3s;}
+.card:hover img{transform:scale(1.05);}
+
+/* STATS */
+.stats{display:flex;justify-content:center;gap:40px;text-align:center;flex-wrap:wrap;}
+.stat h3{color:#22c55e;font-size:2.2rem;margin-bottom:5px;}
+
+/* FOOTER */
+footer {
+  max-width:1400px;
+  margin:40px auto;
+  padding:20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap; 
+  gap:20px;
+  color:#6b7280;
+  font-size:0.9em;
+  text-align:center;
+}
+footer a{color:#0ea5e9;text-decoration:none;font-weight:600;}
+
+/* RESPONSIVE TYPOGRAPHY */
+@media(max-width:1024px){
+  section{padding:50px 30px;}
+}
+@media(max-width:768px){
+  header h1{font-size:2.2rem;}
+  header p{font-size:1rem;}
+  .skills{gap:8px;}
+  .feedback-card h3{font-size:1rem;}
+  .feedback-card p{font-size:0.9rem;}
+}
+@media(max-width:480px){
+  nav{flex-direction:column;gap:15px;padding:10px 0;}
+  header{padding:80px 15px 50px;}
+  section{padding:40px 15px;}
+  .feedback-card p{font-size:0.85rem;}
 }
 </style>
 </head>
+<body>
 
-<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-white">
+<!-- LIGHT/DARK TOGGLE -->
+<button id="themeToggle">Toggle Theme</button>
 
-<!-- NAVBAR -->
-<nav class="fixed w-full z-50 bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg">
-  <div class="max-w-6xl mx-auto flex justify-between p-4 text-white">
-    <h1 class="font-bold text-lg">Ryan Damasco</h1>
-    <div class="space-x-6">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-      
-    </div>
-  </div>
+<!-- FLOATING CONTACT BUTTON -->
+<a href="#contact" id="contactBtn">Contact Me</a>
+
+<!-- NAV -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#help">Services</a>
+  <a href="#expertise">Expertise</a>
+  <a href="#projects">Projects</a>
+  <a href="#feedback">Feedback</a>
+  <a href="#contact">Contact</a>
 </nav>
 
-<!-- HERO -->
-<section class="gradient text-white pt-32 pb-24 text-center px-6">
-  <img src="myphoto.png" class="mx-auto rounded-full shadow-lg mb-6 border-4 border-white">
-  <h1 class="text-5xl font-bold mb-4">Hi, I'm Ryan 👋</h1>
-  <p class="text-xl mb-6"><span id="typing"></span></p>
-  <p class="max-w-xl mx-auto opacity-90">Web Developer & Accounting Professional combining technology and finance expertise.</p>
-</section>
-
-<!-- VIDEO -->
-<section class="max-w-5xl mx-auto mt-16 px-6">
-  <h2 class="text-3xl font-bold text-center mb-6">Introduction</h2>
-  <div class="aspect-video">
-    <iframe class="w-full h-full rounded-xl shadow-lg"
-    src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-    allowfullscreen></iframe>
-  </div>
-</section>
+<!-- HEADER -->
+<header>
+  <h1>Ryan Damasco</h1>
+   <h2 style="margin-top:10px;font-weight:500;color:#0ea5e9;font-size:1.5rem;">
+    Financial Systems, Automation & Analytics Consultant
+  </h2>
+  <p style="margin-top:20px;max-width:750px;margin-left:auto;margin-right:auto;font-size:1.1rem;line-height:1.6;">
+I help international businesses automate operations, optimize workflows, and gain actionable insights through smart dashboards and data-driven systems. 
+With over 6 years of experience working with clients across multiple countries, I design solutions that reduce errors, save time, and enable scalable growth. 
+My expertise spans financial systems, workflow automation, CRM integration, and advanced analytics — providing businesses with the tools and insights needed to make confident, strategic decisions.
+</p>
+  <div class="badge">Available for Remote Projects</div>
+</header>
 
 <!-- ABOUT -->
-<section id="about" class="max-w-5xl mx-auto mt-20 px-6">
-  <div class="card">
-    <h2 class="text-2xl font-bold mb-4">About Me</h2>
-      <p>I am an Application System Engineer with expertise in Java, JavaScript, Spring Boot, AI, and AWS. With a strong background in accounting, specializing in Accounts Receivable (AR) and Accounts Payable (AP), I combine technical skills and business insight to build efficient, scalable solutions. I enjoy bridging the gap between technology and finance, delivering applications that not only work seamlessly but also support organizational goals</p>
-    
+<section id="about">
+  <h2>About Me</h2>
+  <p style="text-align:center;max-width:900px;margin:auto;">
+    With over 6+ years working with international clients, I design efficient financial systems, automate workflows, and build insightful dashboards that transform business operations. I specialize in streamlining financial processes, integrating cloud and CRM solutions, and providing actionable data-driven insights that empower decision-making.
+  </p>
+  <p style="text-align:center;max-width:900px;margin:auto;margin-top:15px;">
+    I am passionate about leveraging technology to help businesses save time, reduce errors, and scale operations globally. My approach combines strategic consulting with hands-on implementation, ensuring solutions are tailored to each client’s unique needs.
+  </p>
+
+  <!-- VISION / MISSION / GOAL -->
+  <div style="max-width:900px;margin:30px auto;text-align:center;">
+    <h3 style="color:#0ea5e9;margin-bottom:10px;">Vision</h3>
+    <p>To become a trusted partner for international companies by providing innovative financial systems and automation solutions that drive growth and operational excellence.</p>
+
+    <h3 style="color:#0ea5e9;margin-bottom:10px;margin-top:25px;">Mission</h3>
+    <p>To help businesses optimize processes, implement scalable automation, and leverage data effectively so they can focus on growth and strategic decision-making.</p>
+
+    <h3 style="color:#0ea5e9;margin-bottom:10px;margin-top:25px;">Goal</h3>
+    <p>My ultimate goal is to establish a consultancy capable of helping international companies expand efficiently by offering high-quality automation, web, and reporting services that enhance productivity and profitability.</p>
+  </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="max-w-6xl mx-auto mt-20 px-6">
-  <h2 class="text-3xl font-bold text-center mb-10">Skills</h2>
-  <div class="grid md:grid-cols-4 gap-6">
-    <div class="skill"><i class="fab fa-html5 text-orange-500 text-3xl"></i><p>HTML</p></div>
-    <div class="skill"><i class="fab fa-css3-alt text-blue-500 text-3xl"></i><p>CSS</p></div>
-    <div class="skill"><i class="fab fa-js text-yellow-400 text-3xl"></i><p>JavaScript</p></div>
-    <div class="skill"><i class="fab fa-react text-cyan-400 text-3xl"></i><p>React</p></div>
-    <div class="skill"><i class="fab fa-salesforce text-blue-400 text-3xl"></i><p>Salesforce</p></div>
-    <div class="skill"><i class="fas fa-bullhorn text-pink-500 text-3xl"></i><p>GHL</p></div>
-    <div class="skill"><i class="fas fa-database text-green-400 text-3xl"></i><p>SAP</p></div>
-    <div class="skill"><i class="fas fa-chart-line text-indigo-400 text-3xl"></i><p>QuickBooks</p></div>
-    <div class="skill"><i class="fas fa-cogs text-gray-500 text-3xl"></i><p>AWS</p></div>
+<!-- HOW I HELP CLIENTS -->
+<section id="help">
+<h2>How I Help Clients</h2>
+<div class="feedback-cards">
+  <div class="feedback-card">
+    <!--<img src="https://img.icons8.com/fluency/48/000000/automation.png" alt="Financial Automation"-->
+   <h3>Financial Automation</h3>
+    <p>Automate Accounts Payable/Receivable and reporting to reduce errors and save time.</p>
   </div>
+  <div class="feedback-card">
+    <!--<img src="https://img.icons8.com/fluency/48/000000/crm.png" alt="CRM Integration"-->
+    <h3>CRM & Workflow Integration</h3>
+    <p>Implement CRM solutions and workflows to boost team efficiency and client tracking.</p>
+  </div>
+  <div class="feedback-card">
+    <!--img src="https://img.icons8.com/fluency/48/000000/cloud-computing.png" alt="Web & Cloud Solutions"-->
+    <h3>Web & Cloud Solutions</h3>
+    <p>Build secure web dashboards and portals integrated with cloud systems for scalable insights.</p>
+  </div>
+  <div class="feedback-card">
+    <!--img src="https://img.icons8.com/fluency/48/000000/business-report.png" alt="Insights & Reporting"-->
+    <h3>Insights & Reporting</h3>
+    <p>Automated reports to empower smarter data-driven business decisions.</p>
+  </div>
+</div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="py-20 max-w-6xl mx-auto px-6">
-  <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
-  <div class="grid md:grid-cols-2 gap-8">
-    <div class="relative group rounded-2xl p-[2px] bg-gradient-to-r from-indigo-500 to-purple-600">
-      <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 transition group-hover:scale-105">
-        <h3 class="font-bold text-xl mb-2 text-indigo-600 dark:text-indigo-400">CRM Automation System</h3>
-        <p>Automated workflows using GoHighLevel and AWS integrations.</p>
-      </div>
-    </div>
-    <div class="relative group rounded-2xl p-[2px] bg-gradient-to-r from-pink-500 to-purple-600">
-      <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 transition group-hover:scale-105">
-        <h3 class="font-bold text-xl mb-2 text-pink-600 dark:text-pink-400">AI Translation Tool</h3>
-        <p>Built automation workflows for AI-based content translation.</p>
-      </div>
-    </div>
+<section id="projects">
+<h2>Dashboard & Web Projects</h2>
+<div class="projects">
+  <div class="card">
+    <img src="https://cdn.dribbble.com/userupload/9216406/file/original-3e74414908d866201be4e3f9ce8bacae.png" alt="Business Analytics Dashboard">
+    <h3>Business Analytics Dashboard</h3>
+    <p>A clean interface showcasing core business KPIs and interactive analytics.</p>
   </div>
+  <div class="card">
+    <img src="https://cdn.dribbble.com/userupload/16170764/file/original-be4ba37dd1a39b6a3ab5a8e195cfbf58.png" alt="Web Dashboard UI">
+    <h3>Web Dashboard UI</h3>
+    <p>Professional dashboard layout designed for web platforms with real-time data visuals.</p>
+  </div>
+  <div class="card">
+    <img src="https://cdn.dribbble.com/userupload/13312687/file/original-e98964222308d79bc3dd842b05907a36.png" alt="Finance Metrics Screen">
+    <h3>Finance Metrics Screen</h3>
+    <p>Financial dashboard integrating multiple metrics on one screen for quick insights.</p>
+  </div>
+</div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience" class="max-w-5xl mx-auto mt-20 px-6">
-  <h2 class="text-3xl font-bold text-center mb-10">Experience</h2>
-  <div class="space-y-6">
-    <div class="card"><h3 class="font-bold">Application Systems Engineer</h3><p>Developed enterprise applications and automation systems.</p></div>
-    <div class="card"><h3 class="font-bold">E-Commerce Web Developer</h3><p>Built and optimized e-commerce platforms and CRM systems.</p></div>
-    <div class="card"><h3 class="font-bold">IT Instructor</h3><p>Trained students in programming and system development.</p></div>
-    <div class="card"><h3 class="font-bold">Accounting Experience</h3><p>Handled AR/AP, bookkeeping, journal entries using SAP, QuickBooks, and BusinessWare.</p></div>
+<!-- FEEDBACK -->
+<section id="feedback">
+<h2>Client Feedback</h2>
+<div class="feedback-cards">
+  <div class="feedback-card">
+    <p>“Ryan’s automation transformed our AP/AR workflows and improved accuracy across reports.”</p>
+    <span>— Owner, Online Retail (Germany)</span>
   </div>
+  <div class="feedback-card">
+    <p>“CRM and workflow integration helped our team operate with fewer bottlenecks.”</p>
+    <span>— Founder, E-commerce Platform (Canada)</span>
+  </div>
+  <div class="feedback-card">
+    <p>“Real-time dashboards gave our team insights we never had before.”</p>
+    <span>— CEO, Digital Services (Australia)</span>
+  </div>
+</div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="gradient text-white mt-20 py-16 text-center">
-  <h2 class="text-3xl font-bold mb-4">Contact</h2>
-  <p>Email: damasco.rbd@gmail.com</p>
-  <p>Phone: 0917.162.3115</p>
-  <p>www.linkedin.com/in/ryan-damasco-224868134</p>
-  <a href="RyanDamasco_CV.pdf" class="mt-6 inline-block bg-white text-purple-600 px-6 py-3 rounded-full shadow hover:scale-105 transition">⬇ Download CV</a>
+<section id="contact">
+<h2>Contact</h2>
+<p style="text-align:center">Email: <a href="mailto:damasco.rbd@gmail.com">damasco.rbd@gmail.com</a></p>
 </section>
 
-<!-- AI CHAT -->
-<div id="chatBtn" onclick="toggleChat()" class="fixed bottom-6 right-6 bg-purple-600 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-lg cursor-pointer">
-  <i class="fas fa-robot text-xl"></i>
-</div>
-
-<div id="chatBox" class="fixed bottom-24 right-6 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4">
-  <h3 class="font-bold mb-2">AI Assistant</h3>
-  <div id="chatMessages" class="h-48 overflow-y-auto text-sm mb-2"></div>
-  <input id="chatInput" placeholder="Ask anything..." class="w-full border rounded p-2 text-black">
-</div>
+<!-- FOOTER -->
+<footer>
+<a href="Ryan_Damasco_CV.pdf" download>Download CV</a>
+<p>© 2026 Ryan Damasco</p>
+</footer>
 
 <script>
-// Dark mode toggle
-function toggleDark(){ document.body.classList.toggle("dark"); }
+// SCROLL FADE-IN
+const sections=document.querySelectorAll('section');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+},{threshold:0.1});
+sections.forEach(section=>observer.observe(section));
 
-// Typed animation
-new Typed("#typing",{
-  strings:["Web Developer","Application Developer","Accounting (AR/AP)","Automation Specialist"],
-  typeSpeed:60,
-  loop:true
-});
-
-// Chat toggle
-function toggleChat(){
-  const box=document.getElementById("chatBox");
-  box.style.display=(box.style.display==="block")?"none":"block";
-}
-
-// AI reply logic
-function getReply(input){
-  input=input.toLowerCase().trim();
-  if(input.includes("hire") || input.includes("why should we hire")){
-    return "If you're not looking for a hardworking, reliable, and dedicated employee who delivers results without complaints, then don't hire Ryan. But if you want someone who adds real value to your team — he's exactly the person you need.";
-  }
-  if(input.includes("age")) return "Ryan is in his mid 40s.";
-  if(input.includes("address") || input.includes("location")) return "Ryan is based in the Philippines.";
-  if(input.includes("contact") || input.includes("phone") || input.includes("email")) return "You can contact Ryan at 09171623115 or damasco.rbd@gmail.com.";
-  if(input.includes("experience")) return "Ryan has 4+ years in Web Development and Accounting.";
-  if(input.includes("skills")) return "React,Java, Salesforce, Springboot,Java Script, AWS, AI Automation, GHL, SAP, QuickBooks, and more.";
-  if(input.includes("strength")) return "Detail-oriented, reliable, and highly dedicated.";
-  if(input.includes("weak") || input.includes("weakness")) return "Sometimes too detail-focused, but always improving efficiency.";
-  if(/(hi|hello|hey|how are you|good morning|good afternoon|good evening)/.test(input)){
-    return "Hello! I'm Ryan's AI assistant. Ask me anything about skills, experience, or projects.";
-  }
-  const fallback=["That's interesting! Could you ask about skills, experience, or projects?","I'm here to help! Feel free to ask about Ryan's expertise or background.","Ryan has a strong background in web development and accounting. What would you like to know?","I’m happy to answer questions about Ryan’s projects, skills, or experience."];
-  return fallback[Math.floor(Math.random()*fallback.length)];
-}
-
-// Chat input handling
-const input=document.getElementById("chatInput");
-const messages=document.getElementById("chatMessages");
-
-input.addEventListener("keypress",function(e){
-  if(e.key==="Enter"){
-    let user=input.value.trim();
-    if(!user) return;
-    messages.innerHTML+=`<p><b>You:</b> ${escapeHTML(user)}</p>`;
-    messages.innerHTML+=`<p><b>AI:</b> ${escapeHTML(getReply(user))}</p>`;
-    input.value="";
-    messages.scrollTop=messages.scrollHeight;
-  }
-});
-
-// Escape HTML helper
-function escapeHTML(str){
-  return str.replace(/[&<>"']/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m];});
-}
+// LIGHT/DARK MODE TOGGLE
+const toggle=document.getElementById('themeToggle');
+toggle.addEventListener('click',()=>{document.body.classList.toggle('dark');});
 </script>
 
 </body>
