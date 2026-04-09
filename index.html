@@ -3,108 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ryan Damasco — Systems & Automation Consultant</title>
+<title>Ryan Damasco — Financial & Automation Consultant</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 /* BASE */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{background:#f9fafb;color:#1f2937;line-height:1.6;scroll-behavior:smooth;transition:background 0.3s,color 0.3s;}
-a{color:#0ea5e9;text-decoration:none;transition:0.3s;}
+body{background:#f9fafb;color:#1f2937;line-height:1.6;scroll-behavior:smooth;}
+a{text-decoration:none;transition:0.3s;}
 a:hover{color:#2563eb;}
 
-/* DARK MODE */
-body.dark{background:#1f2937;color:#f3f4f6;}
-body.dark a{color:#22c55e;}
-body.dark section{background:#111827;box-shadow:0 4px 20px rgba(255,255,255,0.05);}
-body.dark .card{background:#1f2937;box-shadow:0 4px 18px rgba(255,255,255,0.05);}
-body.dark .feedback-card{background:#111827;box-shadow:0 4px 15px rgba(255,255,255,0.05);}
-body.dark footer{color:#9ca3af;}
-body.dark section, 
-body.dark section h2, 
-body.dark section p,
-body.dark .skills, 
-body.dark .skill, 
-body.dark .stat h3, 
-body.dark .stat p{color:#f3f4f6 !important;}
-body.dark #contact a{color:#22c55e !important;}
-
 /* NAVBAR */
-nav{position:sticky;top:0;background:#fff;
-box-shadow:0 2px 8px rgba(0,0,0,0.05);
-display:flex;justify-content:center;gap:30px;padding:15px 0;z-index:999;}
+nav{position:sticky;top:0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.05);display:flex;justify-content:center;gap:30px;padding:15px 0;z-index:999;}
 nav a{font-weight:500;letter-spacing:0.5px;}
 
-/* HEADER */
-header{
-  text-align:center;padding:120px 20px 80px;position:relative;overflow:hidden;
+/* HERO */
+header {
+  position: relative;
+  height: 600px;
+  background: url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&h=800') center/cover no-repeat;
 }
-header::before{
-  content:"";position:absolute;top:0;left:0;width:100%;height:100%;
-  background:url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg') center/cover no-repeat;
-  opacity:0.15; z-index:0;
+header .overlay {
+  position: absolute; top:0; left:0; width:100%; height:100%;
+  background: rgba(255,255,255,0.65); /* transparent overlay for readability */
+  z-index: 1;
 }
-header h1, header p, .badge{position:relative; z-index:1;}
-header h1{font-size:3rem;font-weight:700;}
-header p{font-size:1.1rem;max-width:700px;margin:15px auto;opacity:0.9;}
-.badge{display:inline-block;padding:10px 25px;background:#22c55e;border-radius:25px;font-weight:600;margin-top:15px;transition:0.3s;}
-.badge:hover{transform:scale(1.05);}
-
-/* LIGHT/DARK TOGGLE BUTTON */
-#themeToggle{position:fixed;top:20px;right:20px;background:#0ea5e9;color:#fff;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;z-index:1000;font-weight:600;transition:0.3s;}
-#themeToggle:hover{background:#2563eb;}
-
-/* FLOATING CONTACT BUTTON */
-#contactBtn{position:fixed;bottom:25px;right:25px;background:#22c55e;color:#fff;padding:15px 20px;border-radius:50px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.2);cursor:pointer;transition:0.3s;z-index:1000;}
-#contactBtn:hover{background:#16a34a;}
+header .content {
+  position: relative; z-index: 2; text-align:center; padding:120px 20px 80px;
+  height:100%; display:flex; flex-direction:column; justify-content:center;
+}
+header h1 { font-size:3rem; font-weight:700; color:black; }
+header h2 { margin-top:10px; font-weight:500; font-size:1.5rem; color:black; }
+header p { margin-top:20px; max-width:750px; margin:auto; font-size:1.1rem; line-height:1.6; color:black; }
+.badge { display:inline-block; padding:10px 25px; background:#22c55e; border-radius:25px; font-weight:600; margin-top:15px; cursor:pointer; }
+.badge:hover { transform:scale(1.05); }
 
 /* SECTIONS */
-section{
-  max-width:1400px; /* expanded width */
-  margin:60px auto;
-  padding:60px 50px; /* more padding left and right */
-  border-radius:12px;
-  background:#fff;
-  box-shadow:0 4px 20px rgba(0,0,0,0.05);
-  opacity:0;
-  transform:translateY(20px);
-  transition:0.6s;
-}
-section.visible{opacity:1;transform:translateY(0);}
+section{max-width:1400px;margin:60px auto;padding:60px 50px;border-radius:12px;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.05);}
 h2{text-align:center;color:#0ea5e9;font-size:2rem;margin-bottom:35px;}
 
-/* SKILLS */
-.skills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
-.skill{background:#e0f2fe;padding:10px 18px;border-radius:25px;font-weight:500;}
+/* ABOUT */
+#about p{max-width:900px;margin:auto;margin-top:15px;text-align:center;line-height:1.6;}
 
-/* CARDS FOR HELP & FEEDBACK */
+/* SERVICES / CARDS */
 .feedback-cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;
 }
 .feedback-card{
-  background:#f1f5f9;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.05);
-  transition:0.3s;
-  text-align:center;
-  word-wrap: break-word; /* prevents text overflow */
+  background:#f1f5f9;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05);
+  transition:0.3s;text-align:center;word-wrap: break-word;
 }
 .feedback-card:hover{transform:translateY(-3px);}
-.feedback-card h3{
-  margin:10px 0 5px;
-  color:#0ea5e9;
-  font-weight:600;
-  font-size:1.1rem; /* slightly bigger */
-}
-.feedback-card img{display:block;margin:0 auto 10px;width:50px;height:50px;}
-.feedback-card p{
-  font-size:0.95rem; /* slightly bigger for readability */
-  line-height:1.5;
-  color:#1f2937;
-  word-wrap: break-word;
-}
+.feedback-card h3{margin:10px 0 5px;color:#0ea5e9;font-weight:600;font-size:1.1rem;}
+.feedback-card img{display:block;margin:0 auto 10px;width:100%;height:180px;object-fit:cover;border-radius:10px;}
 
 /* PROJECTS */
 .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
@@ -112,131 +62,99 @@ h2{text-align:center;color:#0ea5e9;font-size:2rem;margin-bottom:35px;}
 .card:hover{transform:translateY(-5px);}
 .card img{width:100%;border-radius:12px;margin-bottom:15px;object-fit:cover;height:200px;box-shadow:0 8px 20px rgba(0,0,0,0.1);transition: transform 0.3s;}
 .card:hover img{transform:scale(1.05);}
+.card h3{margin-bottom:10px;color:#0ea5e9;font-size:1.2rem;}
+.card p{font-size:0.95rem;line-height:1.5;color:#1f2937;}
 
-/* STATS */
-.stats{display:flex;justify-content:center;gap:40px;text-align:center;flex-wrap:wrap;}
-.stat h3{color:#22c55e;font-size:2.2rem;margin-bottom:5px;}
+/* GOAL / VISION / MISSION */
+.gvm-container{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+  line-height:1.6;
+}
+.gvm-container h3{color:#0ea5e9;margin-top:20px;margin-bottom:10px;}
+
+/* HIRE ME */
+#hireMe {
+  background: #0ea5e9;
+  padding: 60px 20px;
+  border-radius: 12px;
+  margin: 50px 0;
+}
+.hireMe-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+/* CONTACT */
+#contact p{text-align:center;}
 
 /* FOOTER */
-footer {
-  max-width:1400px;
-  margin:40px auto;
-  padding:20px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap; 
-  gap:20px;
-  color:#6b7280;
-  font-size:0.9em;
-  text-align:center;
-}
-footer a{color:#0ea5e9;text-decoration:none;font-weight:600;}
-
-/* RESPONSIVE TYPOGRAPHY */
-@media(max-width:1024px){
-  section{padding:50px 30px;}
-}
-@media(max-width:768px){
-  header h1{font-size:2.2rem;}
-  header p{font-size:1rem;}
-  .skills{gap:8px;}
-  .feedback-card h3{font-size:1rem;}
-  .feedback-card p{font-size:0.9rem;}
-}
-@media(max-width:480px){
-  nav{flex-direction:column;gap:15px;padding:10px 0;}
-  header{padding:80px 15px 50px;}
-  section{padding:40px 15px;}
-  .feedback-card p{font-size:0.85rem;}
-}
+footer{max-width:1400px;margin:40px auto;padding:20px;text-align:center;color:#6b7280;}
+footer a{color:#0ea5e9;font-weight:600;}
 </style>
 </head>
 <body>
 
-<!-- LIGHT/DARK TOGGLE -->
-<button id="themeToggle"> Dark Mode</button>
-
-<!-- FLOATING CONTACT BUTTON -->
-<a href="#contact" id="contactBtn">Contact Me</a>
-
 <!-- NAV -->
 <nav>
   <a href="#about">About</a>
-  <a href="#help">Services</a>
-  <a href="#expertise">Expertise</a>
+  <a href="#services">Services</a>
   <a href="#projects">Projects</a>
-  <a href="#feedback">Feedback</a>
+  <a href="#gvm">Goal & Vision</a>
+  <a href="#hireMe">Hire Me</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- HEADER -->
+<!-- HERO -->
 <header>
-  <h1>Ryan Damasco</h1>
-   <h2 style="margin-top:10px;font-weight:500;color:#0ea5e9;font-size:1.5rem;">
-    Financial Systems, Automation & Analytics Consultant
-  </h2>
-  <p style="margin-top:20px;max-width:750px;margin-left:auto;margin-right:auto;font-size:1.1rem;line-height:1.6;">
-I help international businesses automate operations, optimize workflows, and gain actionable insights through smart dashboards and data-driven systems. 
-With over 6 years of experience working with clients across multiple countries, I design solutions that reduce errors, save time, and enable scalable growth. 
-My expertise spans financial systems, workflow automation, CRM integration, and advanced analytics — providing businesses with the tools and insights needed to make confident, strategic decisions.
-</p>
-  <div class="badge">Available for Remote Projects</div>
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>Ryan Damasco</h1>
+    <h2>Empowering Businesses with Accurate & Efficient Financial Solutions</h2>
+    <p>Over 6 years of international experience in Accounts Payable & Receivable, streamlining financial workflows and automating processes for remote and global clients.</p>
+    <div class="badge">Available for Remote Projects</div>
+  </div>
 </header>
 
 <!-- ABOUT -->
 <section id="about">
   <h2>About Me</h2>
-  <p style="text-align:center;max-width:900px;margin:auto;">
-    With over 6+ years working with international clients, I design efficient financial systems, automate workflows, and build insightful dashboards that transform business operations. I specialize in streamlining financial processes, integrating cloud and CRM solutions, and providing actionable data-driven insights that empower decision-making.
-  </p>
-  <p style="text-align:center;max-width:900px;margin:auto;margin-top:15px;">
-    I am passionate about leveraging technology to help businesses save time, reduce errors, and scale operations globally. My approach combines strategic consulting with hands-on implementation, ensuring solutions are tailored to each client’s unique needs.
-  </p>
-
-  <!-- VISION / MISSION / GOAL -->
-  <div style="max-width:900px;margin:30px auto;text-align:center;">
-    <h3 style="color:#0ea5e9;margin-bottom:10px;">Vision</h3>
-    <p>To become a trusted partner for international companies by providing innovative financial systems and automation solutions that drive growth and operational excellence.</p>
-
-    <h3 style="color:#0ea5e9;margin-bottom:10px;margin-top:25px;">Mission</h3>
-    <p>To help businesses optimize processes, implement scalable automation, and leverage data effectively so they can focus on growth and strategic decision-making.</p>
-
-    <h3 style="color:#0ea5e9;margin-bottom:10px;margin-top:25px;">Goal</h3>
-    <p>My ultimate goal is to establish a consultancy capable of helping international companies expand efficiently by offering high-quality automation, web, and reporting services that enhance productivity and profitability.</p>
-  </div>
+  <p>Accounts Payable & Receivable Specialist with 6+ years of international experience supporting remote clients worldwide. Certified QuickBooks ProAdvisor with expertise in SAP and ERP systems, committed to optimizing financial workflows and ensuring accuracy. Skilled in automation using Excel, Power BI, and cloud-based solutions to reduce manual work and accelerate processing.</p>
 </section>
 
-<!-- HOW I HELP CLIENTS -->
-<section id="help">
-<h2>How I Help Clients</h2>
+<!-- SERVICES -->
+<section id="services">
+<h2>My Services</h2>
 <div class="feedback-cards">
   <div class="feedback-card">
-    <!--<img src="https://img.icons8.com/fluency/48/000000/automation.png" alt="Financial Automation"-->
-   <h3>Financial Automation</h3>
+    <img src="https://images.pexels.com/photos/669619/pexels-photo-669619.jpeg?auto=compress&cs=tinysrgb&h=400" alt="Financial KPI Dashboard">
+    <h3>Financial & KPI Dashboards</h3>
+    <p>Create interactive dashboards that visualize financial metrics, track performance, and improve operational transparency.</p>
+  </div>
+  <div class="feedback-card">
+    <img src="https://images.pexels.com/photos/3184652/pexels-photo-3184652.jpeg?auto=compress&cs=tinysrgb&h=400" alt="Accounting Automation">
+    <h3>Accounting Automation</h3>
     <p>Automate Accounts Payable/Receivable and reporting to reduce errors and save time.</p>
   </div>
   <div class="feedback-card">
-    <!--<img src="https://img.icons8.com/fluency/48/000000/crm.png" alt="CRM Integration"-->
-    <h3>CRM & Workflow Integration</h3>
-    <p>Implement CRM solutions and workflows to boost team efficiency and client tracking.</p>
+    <img src="https://images.pexels.com/photos/669619/pexels-photo-669619.jpeg?auto=compress&cs=tinysrgb&h=400" alt="Business Analytics">
+    <h3>Business Analysis</h3>
+    <p>Analyze financial data and processes to provide actionable insights for better decision-making.</p>
   </div>
   <div class="feedback-card">
-    <!--img src="https://img.icons8.com/fluency/48/000000/cloud-computing.png" alt="Web & Cloud Solutions"-->
-    <h3>Web & Cloud Solutions</h3>
-    <p>Build secure web dashboards and portals integrated with cloud systems for scalable insights.</p>
-  </div>
-  <div class="feedback-card">
-    <!--img src="https://img.icons8.com/fluency/48/000000/business-report.png" alt="Insights & Reporting"-->
-    <h3>Insights & Reporting</h3>
-    <p>Automated reports to empower smarter data-driven business decisions.</p>
+    <img src="https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?auto=compress&cs=tinysrgb&h=400" alt="AI & Automation">
+    <h3>AI & Process Optimization</h3>
+    <p>Leverage AI tools and cloud solutions to optimize financial workflows and improve efficiency.</p>
   </div>
 </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-<h2>Dashboard & Web Projects</h2>
+<h2>Projects & Dashboards</h2>
 <div class="projects">
   <div class="card">
     <img src="https://cdn.dribbble.com/userupload/9216406/file/original-3e74414908d866201be4e3f9ce8bacae.png" alt="Business Analytics Dashboard">
@@ -256,29 +174,33 @@ My expertise spans financial systems, workflow automation, CRM integration, and 
 </div>
 </section>
 
-<!-- FEEDBACK -->
-<section id="feedback">
-<h2>Client Feedback</h2>
-<div class="feedback-cards">
-  <div class="feedback-card">
-    <p>“Ryan’s automation transformed our AP/AR workflows and improved accuracy across reports.”</p>
-    <span>— Owner, Online Retail (Germany)</span>
-  </div>
-  <div class="feedback-card">
-    <p>“CRM and workflow integration helped our team operate with fewer bottlenecks.”</p>
-    <span>— Founder, E-commerce Platform (Canada)</span>
-  </div>
-  <div class="feedback-card">
-    <p>“Real-time dashboards gave our team insights we never had before.”</p>
-    <span>— CEO, Digital Services (Australia)</span>
-  </div>
+<!-- GOAL / VISION / MISSION -->
+<section id="gvm">
+<h2>Goal, Vision & Mission</h2>
+<div class="gvm-container">
+  <h3>Vision</h3>
+  <p>To become a trusted partner for international companies by providing innovative financial systems and automation solutions that drive growth and operational excellence.</p>
+
+  <h3>Mission</h3>
+  <p>To help businesses optimize processes, implement scalable automation, and leverage data effectively so they can focus on growth and strategic decision-making.</p>
+
+  <h3>Goal</h3>
+  <p>To establish a consultancy capable of helping international companies expand efficiently by offering high-quality automation, web, and reporting services that enhance productivity and profitability.</p>
 </div>
+</section>
+
+<!-- HIRE ME -->
+<section id="hireMe">
+  <div class="hireMe-container">
+    <h3>Why Hire Me?</h3>
+    <p>With expertise in high-volume transaction handling, AP/AR automation, and KPI-driven dashboards, I help businesses save time, reduce errors, and achieve operational transparency. Reach out today to see how we can optimize your financial workflows and make smarter business decisions together.</p>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-<h2>Contact</h2>
-<p style="text-align:center">Email: <a href="mailto:damasco.rbd@gmail.com">damasco.rbd@gmail.com</a></p>
+<h2>Contact Me</h2>
+<p>Email: <a href="mailto:damasco.rbd@gmail.com">damasco.rbd@gmail.com</a></p>
 </section>
 
 <!-- FOOTER -->
@@ -286,21 +208,6 @@ My expertise spans financial systems, workflow automation, CRM integration, and 
 <a href="RyanDamasco_CV.pdf" download>Download CV</a>
 <p>© 2026 Ryan Damasco</p>
 </footer>
-
-<script>
-// SCROLL FADE-IN
-const sections=document.querySelectorAll('section');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting) entry.target.classList.add('visible');
-  });
-},{threshold:0.1});
-sections.forEach(section=>observer.observe(section));
-
-// LIGHT/DARK MODE TOGGLE
-const toggle=document.getElementById('themeToggle');
-toggle.addEventListener('click',()=>{document.body.classList.toggle('dark');});
-</script>
 
 </body>
 </html>
