@@ -1,213 +1,1297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ryan Damasco — Financial & Automation Consultant</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-/* BASE */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{background:#f9fafb;color:#1f2937;line-height:1.6;scroll-behavior:smooth;}
-a{text-decoration:none;transition:0.3s;}
-a:hover{color:#2563eb;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ryan Damasco | Finance Automation Specialist</title>
 
-/* NAVBAR */
-nav{position:sticky;top:0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.05);display:flex;justify-content:center;gap:30px;padding:15px 0;z-index:999;}
-nav a{font-weight:500;letter-spacing:0.5px;}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-/* HERO */
-header {
-  position: relative;
-  height: 600px;
-  background: url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&h=800') center/cover no-repeat;
-}
-header .overlay {
-  position: absolute; top:0; left:0; width:100%; height:100%;
-  background: rgba(255,255,255,0.65); /* transparent overlay for readability */
-  z-index: 1;
-}
-header .content {
-  position: relative; z-index: 2; text-align:center; padding:120px 20px 80px;
-  height:100%; display:flex; flex-direction:column; justify-content:center;
-}
-header h1 { font-size:3rem; font-weight:700; color:black; }
-header h2 { margin-top:10px; font-weight:500; font-size:1.5rem; color:black; }
-header p { margin-top:20px; max-width:750px; margin:auto; font-size:1.1rem; line-height:1.6; color:black; }
-.badge { display:inline-block; padding:10px 25px; background:#22c55e; border-radius:25px; font-weight:600; margin-top:15px; cursor:pointer; }
-.badge:hover { transform:scale(1.05); }
+  <style>
+    :root {
+      --bg: #050b16;
+      --bg-2: #091120;
+      --panel: rgba(10, 18, 35, 0.92);
+      --panel-soft: rgba(14, 24, 44, 0.82);
+      --text: #f3f7ff;
+      --muted: #9ca9c5;
+      --line: rgba(133, 168, 255, 0.14);
+      --blue: #3b82f6;
+      --blue-2: #60a5fa;
+      --cyan: #36c3ff;
+      --glow: rgba(54, 195, 255, 0.22);
+      --green: #44d492;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --max: 1240px;
+    }
 
-/* SECTIONS */
-section{max-width:1400px;margin:60px auto;padding:60px 50px;border-radius:12px;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.05);}
-h2{text-align:center;color:#0ea5e9;font-size:2rem;margin-bottom:35px;}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(59,130,246,.16), transparent 20%),
+        radial-gradient(circle at 85% 14%, rgba(54,195,255,.14), transparent 18%),
+        linear-gradient(180deg, #030814 0%, #07101d 34%, #06101d 100%);
+      line-height: 1.55;
+    }
 
-/* ABOUT */
-#about p{max-width:900px;margin:auto;margin-top:15px;text-align:center;line-height:1.6;}
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-/* SERVICES / CARDS */
-.feedback-cards{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;
-}
-.feedback-card{
-  background:#f1f5f9;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05);
-  transition:0.3s;text-align:center;word-wrap: break-word;
-}
-.feedback-card:hover{transform:translateY(-3px);}
-.feedback-card h3{margin:10px 0 5px;color:#0ea5e9;font-weight:600;font-size:1.1rem;}
-.feedback-card img{display:block;margin:0 auto 10px;width:100%;height:180px;object-fit:cover;border-radius:10px;}
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
 
-/* PROJECTS */
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
-.card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,0.05);transition:0.3s;}
-.card:hover{transform:translateY(-5px);}
-.card img{width:100%;border-radius:12px;margin-bottom:15px;object-fit:cover;height:200px;box-shadow:0 8px 20px rgba(0,0,0,0.1);transition: transform 0.3s;}
-.card:hover img{transform:scale(1.05);}
-.card h3{margin-bottom:10px;color:#0ea5e9;font-size:1.2rem;}
-.card p{font-size:0.95rem;line-height:1.5;color:#1f2937;}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(3, 8, 20, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
 
-/* GOAL / VISION / MISSION */
-.gvm-container{
-  max-width:900px;
-  margin:auto;
-  text-align:center;
-  line-height:1.6;
-}
-.gvm-container h3{color:#0ea5e9;margin-top:20px;margin-bottom:10px;}
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-/* HIRE ME */
-#hireMe {
-  background: #0ea5e9;
-  padding: 60px 20px;
-  border-radius: 12px;
-  margin: 50px 0;
-}
-.hireMe-container {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  color: white;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-/* CONTACT */
-#contact p{text-align:center;}
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(59,130,246,.2), rgba(54,195,255,.12));
+      border: 1px solid rgba(96,165,250,.2);
+      box-shadow: inset 0 0 20px rgba(59,130,246,.12);
+      color: var(--blue-2);
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
 
-/* FOOTER */
-footer{max-width:1400px;margin:40px auto;padding:20px;text-align:center;color:#6b7280;}
-footer a{color:#0ea5e9;font-weight:600;}
-</style>
+    .brand-text strong {
+      display: block;
+      font-size: .98rem;
+      letter-spacing: .02em;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: .93rem;
+      color: #c4d0e7;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      position: relative;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover { color: white; }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      transition: width .2s ease;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2563eb, #3b82f6 55%, #60a5fa);
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(59,130,246,.28);
+    }
+
+    .hero {
+      padding: 34px 0 22px;
+    }
+
+    .hero-shell {
+      border: 1px solid rgba(255,255,255,.05);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(7,14,28,.95), rgba(7,15,30,.86));
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr .95fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: #66bbff;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 4.35rem);
+      line-height: .98;
+      letter-spacing: -0.04em;
+      max-width: 650px;
+    }
+
+    .accent-line {
+      color: var(--blue-2);
+      display: block;
+    }
+
+    .hero-copy {
+      color: #b3c0d7;
+      font-size: 1.04rem;
+      margin: 18px 0 24px;
+      max-width: 610px;
+    }
+
+    .mini-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .mini-stat {
+      min-width: 150px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #dbe8ff;
+    }
+
+    .mini-stat i {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(59,130,246,.12);
+      border: 1px solid rgba(96,165,250,.2);
+      color: var(--blue-2);
+      font-size: .88rem;
+      flex: 0 0 auto;
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-size: .96rem;
+      margin-bottom: 2px;
+    }
+
+    .mini-stat span {
+      color: var(--muted);
+      font-size: .79rem;
+      line-height: 1.35;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #3b82f6 60%, #5ab5ff);
+      color: white;
+      box-shadow: 0 12px 26px rgba(37,99,235,.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.03);
+      color: white;
+      border-color: rgba(255,255,255,.09);
+    }
+
+    .tool-strip-label {
+      color: var(--muted);
+      font-size: .82rem;
+      margin-bottom: 10px;
+    }
+
+    .tool-strip {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+      color: #d6e3ff;
+    }
+
+    .tool-strip span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .9rem;
+      color: #d3def5;
+    }
+
+    .tool-strip i {
+      color: var(--blue-2);
+      font-size: 1rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 580px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(13, 25, 46, .95), rgba(9, 17, 32, .98));
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .profile-card {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      background: rgba(8, 14, 27, 0.72);
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 14px 28px rgba(0,0,0,.28);
+    }
+
+    .profile-name {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .profile-name i {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.04);
+      color: #dcebff;
+    }
+
+    .profile-name strong {
+      display: block;
+      font-size: .96rem;
+    }
+
+    .profile-name span {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .profile-meta {
+      display: grid;
+      gap: 8px;
+      color: #d7e2f6;
+      font-size: .84rem;
+    }
+
+    .profile-meta div {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .hero-services {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .service-card,
+    .panel,
+    .project-card,
+    .exp-card,
+    .tools-bar,
+    .quote-card,
+    .conversation-card {
+      background: linear-gradient(180deg, rgba(9, 17, 33, .88), rgba(8, 14, 28, .94));
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .service-card {
+      padding: 18px 16px;
+      min-height: 132px;
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(59,130,246,.1);
+      border: 1px solid rgba(96,165,250,.18);
+      color: #67b8ff;
+      margin-bottom: 14px;
+    }
+
+    .service-card h3 {
+      margin: 0 0 8px;
+      font-size: .98rem;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .83rem;
+      line-height: 1.45;
+    }
+
+    section {
+      padding: 18px 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 16px;
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .section-tag {
+      color: #5eb4ff;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .panel h2, .section-title {
+      margin: 0 0 14px;
+      font-size: clamp(1.45rem, 2.3vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .panel p,
+    .panel li,
+    .subtext {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .summary-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.05);
+    }
+
+    .summary-item i {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: white;
+      flex: 0 0 auto;
+      font-size: .82rem;
+    }
+
+    .ico-blue { background: rgba(59,130,246,.7); }
+    .ico-sky { background: rgba(14,165,233,.7); }
+    .ico-green { background: rgba(34,197,94,.7); }
+    .ico-yellow { background: rgba(234,179,8,.75); }
+    .ico-orange { background: rgba(249,115,22,.75); }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .focus-card {
+      padding: 14px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(10,18,35,.95), rgba(9,16,30,.92));
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+    }
+
+    .focus-thumb {
+      width: 100%;
+      aspect-ratio: 1.35 / 1;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, rgba(59,130,246,.18), rgba(54,195,255,.08));
+      border: 1px solid rgba(255,255,255,.05);
+    }
+
+    .focus-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .focus-card h3 {
+      margin: 0 0 8px;
+      font-size: .98rem;
+    }
+
+    .focus-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 12px 0 14px;
+    }
+
+    .section-header .left h2 {
+      margin: 0 0 6px;
+      font-size: 1.5rem;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .outline-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      color: white;
+      font-weight: 600;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .project-card {
+      overflow: hidden;
+    }
+
+    .project-thumb {
+      width: 100%;
+      aspect-ratio: 1.48 / 1;
+      background: #091221;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 14px;
+    }
+
+    .project-content h3 {
+      margin: 0 0 8px;
+      font-size: .96rem;
+      line-height: 1.35;
+    }
+
+    .project-content p {
+      margin: 0 0 10px;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 9px;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 600;
+      color: #d9e8ff;
+      background: rgba(59,130,246,.12);
+      border: 1px solid rgba(96,165,250,.15);
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .exp-card {
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      min-height: 246px;
+    }
+
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(255,255,255,.04);
+    }
+
+    .exp-blue::before { background: #4f8eff; }
+    .exp-green::before { background: #4ade80; }
+    .exp-purple::before { background: #c084fc; }
+
+    .exp-date {
+      color: #9ec9ff;
+      font-size: .85rem;
+      font-weight: 700;
+      margin-left: 22px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .exp-card h3 {
+      margin: 0 0 4px;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .exp-company {
+      color: #79a9ff;
+      font-size: .84rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .exp-card p {
+      color: var(--muted);
+      font-size: .86rem;
+      margin: 0 0 14px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 600;
+      color: #dce9ff;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .bottom-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1.2fr .95fr .95fr;
+      gap: 16px;
+    }
+
+    .list-clean {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .tools-bar {
+      margin-top: 16px;
+      padding: 16px 18px;
+    }
+
+    .tools-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tool-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #dce7fa;
+      font-size: .88rem;
+    }
+
+    .tool-item i {
+      color: #78b8ff;
+      font-size: 1.05rem;
+    }
+
+    .quote-row {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+    }
+
+    .quote-card, .conversation-card {
+      padding: 18px 20px;
+    }
+
+    .quote-card blockquote {
+      margin: 0;
+      color: #dce7fb;
+      font-size: .95rem;
+      line-height: 1.65;
+    }
+
+    .quote-card cite {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-style: normal;
+      font-size: .82rem;
+    }
+
+    .worked-with {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      align-items: center;
+      color: #edf5ff;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .contact-bar {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .contact-footer {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(9, 17, 33, .92), rgba(7, 13, 25, .98));
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      color: #dbe8ff;
+      font-size: .82rem;
+    }
+
+    .conversation-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(135deg, rgba(37,99,235,.95), rgba(59,130,246,.9));
+    }
+
+    .conversation-card p { color: rgba(255,255,255,.86); }
+
+    .send-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.18);
+      color: white;
+      width: fit-content;
+    }
+
+    footer {
+      padding: 20px 0 32px;
+      color: var(--muted);
+      font-size: .84rem;
+      text-align: center;
+    }
+
+    @media (max-width: 1180px) {
+      .hero-services,
+      .focus-grid,
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .bottom-grid,
+      .contact-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 14px 0;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .experience-grid,
+      .quote-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual { min-height: 420px; }
+
+      .hero-services,
+      .focus-grid,
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(calc(100% - 20px), var(--max)); }
+      .hero { padding-top: 18px; }
+      .hero-shell { padding: 12px; }
+      h1 { font-size: 2.3rem; }
+      .hero-services,
+      .focus-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links { gap: 14px; }
+      .tools-icons { justify-content: flex-start; }
+    }
+  </style>
 </head>
 <body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <div class="brand-mark">RD</div>
+        <div class="brand-text">
+          <strong>Ryan Damasco</strong>
+          <span>Finance Automation Specialist</span>
+        </div>
+      </a>
 
-<!-- NAV -->
-<nav>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#projects">Projects</a>
-  <a href="#gvm">Goal & Vision</a>
-  <a href="#hireMe">Hire Me</a>
-  <a href="#contact">Contact</a>
-</nav>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-<!-- HERO -->
-<header>
-  <div class="overlay"></div>
-  <div class="content">
-    <h1>Ryan Damasco</h1>
-    <h2>Empowering Businesses with Accurate & Efficient Financial Solutions</h2>
-    <p>Over 6 years of international experience in Accounts Payable & Receivable, streamlining financial workflows and automating processes for remote and global clients.</p>
-    <div class="badge">Available for Remote Projects</div>
-  </div>
-</header>
+      <a class="nav-cta" href="#contact">
+        Hire Me <i class="fa-solid fa-paper-plane"></i>
+      </a>
+    </div>
+  </header>
 
-<!-- ABOUT -->
-<section id="about">
-  <h2>About Me</h2>
-  <p>Accounts Payable & Receivable Specialist with 6+ years of international experience supporting remote clients worldwide. Certified QuickBooks ProAdvisor with expertise in SAP and ERP systems, committed to optimizing financial workflows and ensuring accuracy. Skilled in automation using Excel, Power BI, and cloud-based solutions to reduce manual work and accelerate processing.</p>
-</section>
+  <main id="home" class="container">
+    <section class="hero">
+      <div class="hero-shell">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Finance Automation Specialist</div>
+            <h1>
+              Automation. Systems.<br>
+              Web Solutions.<br>
+              <span class="accent-line">Business Growth.</span>
+            </h1>
 
-<!-- SERVICES -->
-<section id="services">
-<h2>My Services</h2>
-<div class="feedback-cards">
-  <div class="feedback-card">
-    <img src="https://images.pexels.com/photos/669619/pexels-photo-669619.jpeg?auto=compress&cs=tinysrgb&h=400" alt="Financial KPI Dashboard">
-    <h3>Financial & KPI Dashboards</h3>
-    <p>Create interactive dashboards that visualize financial metrics, track performance, and improve operational transparency.</p>
-  </div>
-  <div class="feedback-card">
-    <img src="https://images.pexels.com/photos/3184652/pexels-photo-3184652.jpeg?auto=compress&cs=tinysrgb&h=400" alt="Accounting Automation">
-    <h3>Accounting Automation</h3>
-    <p>Automate Accounts Payable/Receivable and reporting to reduce errors and save time.</p>
-  </div>
-  <div class="feedback-card">
-    <img src="https://images.pexels.com/photos/669619/pexels-photo-669619.jpeg?auto=compress&cs=tinysrgb&h=400" alt="Business Analytics">
-    <h3>Business Analysis</h3>
-    <p>Analyze financial data and processes to provide actionable insights for better decision-making.</p>
-  </div>
-  <div class="feedback-card">
-    <img src="https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?auto=compress&cs=tinysrgb&h=400" alt="AI & Automation">
-    <h3>AI & Process Optimization</h3>
-    <p>Leverage AI tools and cloud solutions to optimize financial workflows and improve efficiency.</p>
-  </div>
-</div>
-</section>
+            <p class="hero-copy">
+              I design and build automation systems, web solutions, and e-commerce workflows that improve efficiency,
+              reduce manual work, and drive measurable business results.
+            </p>
 
-<!-- PROJECTS -->
-<section id="projects">
-<h2>Projects & Dashboards</h2>
-<div class="projects">
-  <div class="card">
-    <img src="https://cdn.dribbble.com/userupload/9216406/file/original-3e74414908d866201be4e3f9ce8bacae.png" alt="Business Analytics Dashboard">
-    <h3>Business Analytics Dashboard</h3>
-    <p>A clean interface showcasing core business KPIs and interactive analytics.</p>
-  </div>
-  <div class="card">
-    <img src="https://cdn.dribbble.com/userupload/16170764/file/original-be4ba37dd1a39b6a3ab5a8e195cfbf58.png" alt="Web Dashboard UI">
-    <h3>Web Dashboard UI</h3>
-    <p>Professional dashboard layout designed for web platforms with real-time data visuals.</p>
-  </div>
-  <div class="card">
-    <img src="https://cdn.dribbble.com/userupload/13312687/file/original-e98964222308d79bc3dd842b05907a36.png" alt="Finance Metrics Screen">
-    <h3>Finance Metrics Screen</h3>
-    <p>Financial dashboard integrating multiple metrics on one screen for quick insights.</p>
-  </div>
-</div>
-</section>
+            <div class="mini-stats">
+              <div class="mini-stat">
+                <i class="fa-solid fa-award"></i>
+                <div>
+                  <strong>4+ Years</strong>
+                  <span>Software Engineering</span>
+                </div>
+              </div>
+              <div class="mini-stat">
+                <i class="fa-solid fa-globe"></i>
+                <div>
+                  <strong>6+ Years</strong>
+                  <span>Remote & International</span>
+                </div>
+              </div>
+              <div class="mini-stat">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <strong>Global Ready</strong>
+                  <span>Work Anywhere</span>
+                </div>
+              </div>
+            </div>
 
-<!-- GOAL / VISION / MISSION -->
-<section id="gvm">
-<h2>Goal, Vision & Mission</h2>
-<div class="gvm-container">
-  <h3>Vision</h3>
-  <p>To become a trusted partner for international companies by providing innovative financial systems and automation solutions that drive growth and operational excellence.</p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#projects">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+              <a class="btn btn-secondary" href="Ryan_Damasco_WebDev.pdf" download>Download CV <i class="fa-solid fa-download"></i></a>
+              <a class="btn btn-secondary" href="mailto:damasco.rbd@gmail.com">Email Me <i class="fa-regular fa-envelope"></i></a>
+            </div>
 
-  <h3>Mission</h3>
-  <p>To help businesses optimize processes, implement scalable automation, and leverage data effectively so they can focus on growth and strategic decision-making.</p>
+            <div class="tool-strip-label">Trusted by global tools & platforms</div>
+            <div class="tool-strip">
+              <span><i class="fa-brands fa-aws"></i> AWS</span>
+              <span><i class="fa-brands fa-docker"></i> Docker</span>
+              <span><i class="fa-brands fa-google"></i> Google Cloud</span>
+              <span><i class="fa-brands fa-github"></i> GitHub</span>
+              <span><i class="fa-brands fa-figma"></i> Figma</span>
+              <span><i class="fa-solid fa-diagram-project"></i> n8n</span>
+            </div>
+          </div>
 
-  <h3>Goal</h3>
-  <p>To establish a consultancy capable of helping international companies expand efficiently by offering high-quality automation, web, and reporting services that enhance productivity and profitability.</p>
-</div>
-</section>
+          <div class="hero-visual">
+            <img src="IMG_3326.png" alt="Ryan Damasco portrait" />
+            <div class="profile-card">
+              <div class="profile-name">
+                <i class="fa-regular fa-user"></i>
+                <div>
+                  <strong>Ryan Damasco</strong>
+                  <span>Finance Automation Specialist | Software Engineer</span>
+                </div>
+              </div>
+              <div class="profile-meta">
+                <div><i class="fa-solid fa-location-dot"></i> Philippines</div>
+                <div><i class="fa-regular fa-envelope"></i> damasco.rbd@gmail.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<!-- HIRE ME -->
-<section id="hireMe">
-  <div class="hireMe-container">
-    <h3>Why Hire Me?</h3>
-    <p>With expertise in high-volume transaction handling, AP/AR automation, and KPI-driven dashboards, I help businesses save time, reduce errors, and achieve operational transparency. Reach out today to see how we can optimize your financial workflows and make smarter business decisions together.</p>
-  </div>
-</section>
+      <div id="expertise" class="hero-services">
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-coins"></i></div>
+          <h3>Finance Automation</h3>
+          <p>Smart workflows & process optimization for faster, cleaner operations.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3>Web Development</h3>
+          <p>High-converting websites and responsive web applications.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+          <h3>E-commerce Solutions</h3>
+          <p>Shopify-style pages and funnels that convert visitors into buyers.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <h3>Workflow Automation</h3>
+          <p>Systems that save time and reduce manual work across teams.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-gear"></i></div>
+          <h3>Business Systems</h3>
+          <p>Scalable solutions for growth, reporting, and operational control.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-user-check"></i></div>
+          <h3>Remote & Reliable</h3>
+          <p>6+ years delivering strong results for remote and international teams.</p>
+        </article>
+      </div>
+    </section>
 
-<!-- CONTACT -->
-<section id="contact">
-<h2>Contact Me</h2>
-<p>Email: <a href="mailto:damasco.rbd@gmail.com">damasco.rbd@gmail.com</a></p>
-</section>
+    <section id="about">
+      <div class="grid-2">
+        <article class="panel">
+          <div class="section-tag">About Me</div>
+          <h2>Turning Business Needs Into Smart Solutions</h2>
+          <p>
+            I’m Ryan Damasco, a Finance Automation Specialist and Software Engineer with 4+ years of software engineering
+            experience and over 6 years of remote work experience. I specialize in building automation systems, web solutions,
+            and e-commerce workflows that improve efficiency, reduce manual work, and support business operations.
+          </p>
+          <p>
+            I focus on turning business requirements into structured, scalable, and practical digital solutions that create real impact.
+          </p>
+          <div class="actions" style="margin-top:18px; margin-bottom:0;">
+            <a class="btn btn-secondary" href="#contact">More About Me</a>
+          </div>
+        </article>
 
-<!-- FOOTER -->
-<footer>
-<a href="RyanDamasco_CV.pdf" download>Download CV</a>
-<p>© 2026 Ryan Damasco</p>
-</footer>
+        <article class="panel">
+          <div class="section-tag">Quick Value Summary</div>
+          <div class="summary-list">
+            <div class="summary-item"><i class="fa-solid fa-code ico-blue"></i><span>4+ years in software engineering and web development</span></div>
+            <div class="summary-item"><i class="fa-solid fa-globe ico-sky"></i><span>6+ years of remote work and international experience</span></div>
+            <div class="summary-item"><i class="fa-solid fa-file-invoice-dollar ico-green"></i><span>Finance Automation Specialist focused on workflow efficiency</span></div>
+            <div class="summary-item"><i class="fa-solid fa-bullseye ico-yellow"></i><span>Translates business requirements into structured solutions</span></div>
+            <div class="summary-item"><i class="fa-solid fa-link ico-orange"></i><span>Builds systems that connect technical execution with business goals</span></div>
+          </div>
+        </article>
+      </div>
 
+      <div class="section-header" style="margin-top:18px;">
+        <div class="left">
+          <div class="section-tag">Core Focus Areas</div>
+        </div>
+      </div>
+
+      <div class="focus-grid">
+        <article class="focus-card">
+          <div class="focus-thumb"><img src="IMAGE.png" alt="Finance automation systems"></div>
+          <h3>Finance Automation Systems</h3>
+          <p>Automate financial processes and reporting for accuracy and efficiency.</p>
+        </article>
+        <article class="focus-card">
+          <div class="focus-thumb"><img src="IMAGE.png" alt="Workflow automation"></div>
+          <h3>Workflow Automation & Process Optimization</h3>
+          <p>Streamline operations and eliminate repetitive manual tasks.</p>
+        </article>
+        <article class="focus-card">
+          <div class="focus-thumb"><img src="IMAGE.png" alt="Web development"></div>
+          <h3>Web Development (WordPress / Front-end)</h3>
+          <p>Build fast, responsive, and conversion-focused web experiences.</p>
+        </article>
+        <article class="focus-card">
+          <div class="focus-thumb"><img src="myproject.png" alt="E-commerce funnels"></div>
+          <h3>E-commerce Pages & Funnels</h3>
+          <p>Create high-converting product pages and sales funnels.</p>
+        </article>
+        <article class="focus-card">
+          <div class="focus-thumb"><img src="IMAGE.png" alt="Business systems"></div>
+          <h3>Business Systems Design & Implementation</h3>
+          <p>Design scalable business systems that support long-term growth.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-header">
+        <div class="left">
+          <div class="section-tag">Featured Projects</div>
+          <h2>Selected Work</h2>
+          <p>Practical web, automation, and e-commerce work aligned with the design shown in your reference.</p>
+        </div>
+        <a class="outline-btn" href="#contact">View All Projects</a>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-thumb"><img src="myproject.png" alt="Pet Hair Remover Landing Page" /></div>
+          <div class="project-content">
+            <h3>Pet Hair Remover Landing Page</h3>
+            <p>Conversion-focused landing page built to highlight product value, benefits, and a strong CTA flow.</p>
+            <div class="pill-row"><span class="pill">WordPress</span><span class="pill">Landing Page</span></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb"><img src="IMAGE.png" alt="Enterprise Web Application" /></div>
+          <div class="project-content">
+            <h3>Enterprise Web Application</h3>
+            <p>Scalable application work with dashboards, reports, and user-friendly interfaces for enterprise use.</p>
+            <div class="pill-row"><span class="pill">Engineering</span><span class="pill">Web App</span></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb"><img src="IMAGE.png" alt="Automation Workflow System" /></div>
+          <div class="project-content">
+            <h3>Automation Workflow System</h3>
+            <p>Automated workflow connecting apps and APIs to reduce manual tasks and improve speed.</p>
+            <div class="pill-row"><span class="pill">n8n / API</span><span class="pill">Automation</span></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb"><img src="myproject.png" alt="E-commerce Product Page" /></div>
+          <div class="project-content">
+            <h3>E-commerce Product Page</h3>
+            <p>Shopify-style product page with upsell logic, review structure, and optimized purchase flow.</p>
+            <div class="pill-row"><span class="pill">Shopify-style</span><span class="pill">Funnel</span></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb"><img src="IMAGE.png" alt="Business Intelligence Dashboard" /></div>
+          <div class="project-content">
+            <h3>Business Intelligence Dashboard</h3>
+            <p>Interactive dashboard for tracking KPIs, performance, trends, and business metrics.</p>
+            <div class="pill-row"><span class="pill">Power BI</span><span class="pill">Dashboard</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-header">
+        <div class="left">
+          <div class="section-tag">Professional Experience</div>
+          <h2>Experience That Connects Tech and Operations</h2>
+        </div>
+      </div>
+
+      <div class="experience-grid">
+        <article class="exp-card exp-blue">
+          <span class="exp-date">2022 – Present</span>
+          <h3>Application System Engineer</h3>
+          <span class="exp-company">Weserv System International Inc. (Fujitsu)</span>
+          <p>Built and maintained enterprise web applications, REST APIs, automation workflows, and scalable system enhancements.</p>
+          <div class="tag-row">
+            <span class="tag">Java</span>
+            <span class="tag">Angular</span>
+            <span class="tag">.NET</span>
+            <span class="tag">APIs</span>
+            <span class="tag">Cloud</span>
+          </div>
+        </article>
+
+        <article class="exp-card exp-green">
+          <span class="exp-date">2021 – 2022</span>
+          <h3>IT Instructor</h3>
+          <span class="exp-company">STI College</span>
+          <p>Taught web development, guided students in practical projects, and strengthened real-world coding and collaboration skills.</p>
+          <div class="tag-row">
+            <span class="tag">Teaching</span>
+            <span class="tag">Web Dev</span>
+            <span class="tag">Mentoring</span>
+          </div>
+        </article>
+
+        <article class="exp-card exp-purple">
+          <span class="exp-date">2016 – 2021</span>
+          <h3>Accounting Staff / IT Specialist / Remote Roles</h3>
+          <span class="exp-company">Operations, Reporting, and Support</span>
+          <p>Handled reporting automation, IT support, process improvement, and remote task delivery across multiple functions.</p>
+          <div class="tag-row">
+            <span class="tag">Automation</span>
+            <span class="tag">IT Support</span>
+            <span class="tag">Reporting</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="bottom-grid">
+        <article id="certifications" class="panel">
+          <div class="section-tag">Certifications</div>
+          <ul class="list-clean">
+            <li>Certified QB Online Accounting</li>
+            <li>QB ProAdvisor</li>
+            <li>Certified SAP Trainer</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <div class="section-tag">Why Work With Me?</div>
+          <ul class="list-clean">
+            <li>Detail-oriented and result-driven</li>
+            <li>Strong communication and collaboration skills</li>
+            <li>Committed to deadlines and quality</li>
+            <li>Continuous learner and problem solver</li>
+            <li>Focused on long-term business value</li>
+          </ul>
+        </article>
+
+        <article class="panel" id="contact">
+          <div class="section-tag">Let’s Work Together</div>
+          <p>I’m open to remote opportunities in Finance Automation, web development, WordPress, e-commerce, and front-end execution worldwide.</p>
+          <div class="actions" style="margin-top:18px; margin-bottom:0;">
+            <a class="btn btn-primary" href="mailto:damasco.rbd@gmail.com">Email Me</a>
+            <a class="btn btn-secondary" href="Ryan_Damasco_WebDev.pdf" download>Download CV</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="tools-bar">
+        <div class="section-tag">Tools & Technologies</div>
+        <div class="tools-icons">
+          <span class="tool-item"><i class="fa-brands fa-wordpress"></i> WordPress</span>
+          <span class="tool-item"><i class="fa-brands fa-shopify"></i> Shopify</span>
+          <span class="tool-item"><i class="fa-brands fa-html5"></i> HTML5</span>
+          <span class="tool-item"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+          <span class="tool-item"><i class="fa-brands fa-js"></i> JavaScript</span>
+          <span class="tool-item"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="tool-item"><i class="fa-brands fa-java"></i> Java</span>
+          <span class="tool-item"><i class="fa-brands fa-angular"></i> Angular</span>
+          <span class="tool-item"><i class="fa-brands fa-vuejs"></i> Vue</span>
+          <span class="tool-item"><i class="fa-brands fa-node-js"></i> Node.js</span>
+          <span class="tool-item"><i class="fa-solid fa-code"></i> .NET</span>
+          <span class="tool-item"><i class="fa-brands fa-django"></i> Django</span>
+          <span class="tool-item"><i class="fa-brands fa-aws"></i> AWS</span>
+          <span class="tool-item"><i class="fa-brands fa-docker"></i> Docker</span>
+          <span class="tool-item"><i class="fa-brands fa-git-alt"></i> Git</span>
+          <span class="tool-item"><i class="fa-brands fa-figma"></i> Figma</span>
+          <span class="tool-item"><i class="fa-solid fa-pen-ruler"></i> Canva</span>
+          <span class="tool-item"><i class="fa-solid fa-diagram-project"></i> n8n</span>
+          <span class="tool-item"><i class="fa-solid fa-robot"></i> Power Automate</span>
+          <span class="tool-item"><i class="fa-solid fa-chart-column"></i> Power BI</span>
+          <span class="tool-item"><i class="fa-brands fa-salesforce"></i> Salesforce</span>
+          <span class="tool-item"><i class="fa-solid fa-vial"></i> Postman</span>
+        </div>
+      </div>
+
+      <div class="quote-row">
+        <article class="quote-card">
+          <div class="section-tag">What Clients Say</div>
+          <blockquote>
+            “Ryan is professional, reliable, and delivers high-quality work. He understands business needs and turns them into effective digital solutions.”
+          </blockquote>
+          <cite>— International Client</cite>
+        </article>
+
+        <article class="quote-card">
+          <div class="section-tag">I’ve Worked With</div>
+          <div class="worked-with">
+            <span>Fujitsu</span>
+            <span>STI College</span>
+            <span>Upwork</span>
+            <span>Freelancer</span>
+            <span>LinkedIn</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="contact-bar">
+        <article class="contact-footer">
+          <div class="section-tag">Ready to Build Something Great?</div>
+          <p class="subtext">Let’s connect and create automation systems and web solutions that drive real business results.</p>
+          <div class="contact-meta">
+            <span class="meta-chip"><i class="fa-regular fa-envelope"></i> damasco.rbd@gmail.com</span>
+            <span class="meta-chip"><i class="fa-solid fa-location-dot"></i> Philippines</span>
+            <span class="meta-chip"><i class="fa-solid fa-circle-check"></i> Available for Remote Work</span>
+          </div>
+        </article>
+
+        <article class="conversation-card">
+          <div>
+            <div class="section-tag" style="color: rgba(255,255,255,.82);">Let’s Start a Conversation</div>
+            <h2 class="section-title" style="margin-bottom:8px;">I’ll respond as soon as possible</h2>
+            <p>Send a message for automation systems, front-end work, business tools, or e-commerce support.</p>
+          </div>
+          <a class="send-btn" href="mailto:damasco.rbd@gmail.com">Send Message <i class="fa-solid fa-paper-plane"></i></a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Ryan Damasco | Finance Automation Specialist Portfolio. All rights reserved.</div>
+  </footer>
 </body>
 </html>
